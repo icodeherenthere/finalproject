@@ -1,0 +1,77 @@
+/* lookinto buying or finding a template that suits my format better possibly the template I showed the mechanic */
+
+
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+}
+
+/* Background page styling
+#signup{
+  background-image: url('/img/signup.jpeg');
+  background-position-x: center;
+  width:100%vh;
+  height: 100%vh;
+}
+
+
+/* profile */
+.tracks section {
+  position: relative;
+  text-align: center;
+}
+
+.tracks section p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px #000;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.jumbotron {
+  background-color: #3399ff;
+  color: white;
+  margin-top: 20px;
+}
+.tracks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.tracks section {
+  flex-basis: calc(33.33% - 20px);
+  margin-bottom: 20px;
+}
+.tracks img {
+  width: 100%;
+}
+.tracks p {
+  margin-top: 10px;
+}
+
