@@ -56,6 +56,141 @@ console.log('The magic happens on port ' + port);
 
 
 // may switch to an api that uses locations instead and health
+const tiresToUse = {
+    // price 145.04-391.05
+    'Bridgestone Battlax Racing R11':{ 
+        'frontTire': '120/70/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '200/55/R17'
+        
+    },
+
+// price 126.85-302.10
+    'Bridgestone Battlax Racing R10':{
+        'frontTire': '110/70/R17',
+        'frontTire': '120/70/R17',
+        'rearTire': '140/70/R17',
+        'rearTire': '150/60/R17',
+        'rearTire': '180/55/R17',
+        'rearTire': '190/50/R17',
+        'rearTire': '190/50/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '200/55/R17',
+        'rearTire': '200/55/R17'
+    },
+
+// 126.85
+    'Bridgestone Battlax HyperSport S22':{
+        'frontTire': '110/70/R17',
+        'frontTire': '120/70/R17',
+        'rearTire': '140/70/R17',
+        'rearTire': '150/60/R17',
+        'rearTire': '160/60/R17',
+        'rearTire': '180/55/R17',
+        'rearTire': '180/60/R17',
+        'rearTire': '190/50/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '200/55/R17',
+    },
+
+    'Bridgestone Battlax HyperSport S21':{
+        'frontTire': '130/70/R16',
+        'frontTire': '120/60/R17',
+        'frontTire': '120/70/R17',
+        'rearTire': '140/70/R17',
+        'rearTire': '150/60/R17',
+        'rearTire': '180/55/R17',
+        'rearTire': '190/50/R17',
+        'rearTire': '190/50/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '190/55/R17',
+    },
+
+    'Michelin Power Cup 2': {
+        'frontTire': '120/70',
+        'rearTire': '190/55',
+        'rearTire': '190/55'
+        
+    },
+    'Pirelli Diablo Supercorsa SP V3':{
+        'frontTire': '120/70',
+        'rearTire': '180/55',
+        'cc': '636cc',
+        'oil': '10W-40',
+        'oilFilter': '303c',
+        'power': '127hp'
+    },
+    'Pirelli Diablo Supercorsa SP V4':{
+        'frontTire': '120/70',
+        'rearTire': '180/55',
+        'cc': '636cc',
+        'oil': '10W-40',
+        'oilFilter': '303c',
+        'power': '127hp'
+    },
+    'Dunlop Sportsmart TT':{
+        'frontTire': '120/70',
+        'rearTire': '190/55',
+        'cc': '999cc',
+        'oil': '5W-40',
+        'oilFilter': '160',
+        'power': '205hp'
+    },
+    'Metzeler Racetec RR':{
+        'frontTire': '120/70',
+        'rearTire': '160/60',
+        'cc': '955cc',
+        'oil': '15W-50',
+        'oilFilter': '159', 
+        'power': '153hp'
+    },
+    'Continental ContiRaceAttack Comp':{
+        'frontTire': '120/70',
+        'rearTire': '160/60',
+        'cc': '1103cc',
+        'oil': '15W-50',
+        'oilFilter': '159',
+        'power': '208hp'
+    },
+    'Avon 3D Ultra Evo':{
+        'frontTire': '120/70',
+        'rearTire': '190/55',
+        'cc': '998cc',
+        'oil': '10W-40',
+        'oilFilter': '159',
+        'power': '198hp'
+    },
+    'IRC RX-01 Road Winner':{
+        'frontTire': '120/70',
+        'rearTire': '190/55',
+        'cc': '998cc',
+        'oil': '10W-40',
+        'oilFilter': '159',
+        'power': '198hp'
+    },
+
+
+
+
+
+
+
+
+    'unknown':{
+        'frontTire': 'unknown',
+        'rearTire': 'unknown',
+        'cc': 'unknown' 
+    }
+}
 const trackInfo = {
   '': {
       'frontTire': '120/70',
