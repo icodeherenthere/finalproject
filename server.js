@@ -84,7 +84,7 @@ const tiresToUse = {
         'rearTire': '200/55/R17'
     },
 
-// 126.85
+// 126.85 - 357.12
     'Bridgestone Battlax HyperSport S22':{
         'frontTire': '110/70/R17',
         'frontTire': '120/70/R17',
@@ -97,99 +97,82 @@ const tiresToUse = {
         'rearTire': '190/55/R17',
         'rearTire': '200/55/R17',
     },
-
+// 137.15 - 360.43
     'Bridgestone Battlax HyperSport S21':{
         'frontTire': '130/70/R16',
         'frontTire': '120/60/R17',
         'frontTire': '120/70/R17',
+        'rearTire': '160/60/R17',
+        'rearTire': '180/55/R17',
+        'rearTire': '190/50/R17',
+        'rearTire': '190/55/R17',
+        'rearTire': '200/55/R17',
+    },
+
+    // 227.66 - 385.95
+    'Continental ContiRaceAttack 2':{
+        'frontTire': '120/70/R17',
+        'rearTire': '160/60/R17',
+        'rearTire': '180/60/R17',
+        'rearTire': '190/55/R17'
+    },
+
+// 132.58 - 298.74
+    'Dunlop Sportsmart TT':{
+        'frontTire': '110/70/R17',
+        'frontTire': '120/70/R17',
+        'frontTire': '120/70/R19',
+        'rearTire': '140/70/R17',
+        'rearTire': '150/60/R17',
+        'rearTire': '160/60/R17',
+        'rearTire': '170/60/R17',
+        'rearTire': '180/55/R17',
+        'rearTire': '180/60/R17',
+        'rearTire': '190/55/R17'
+    },
+
+    // 215.83 -461.28
+    'Pirelli Diablo Supercorsa SP V4': {
+        'frontTire': '120/70/R17',
         'rearTire': '140/70/R17',
         'rearTire': '150/60/R17',
         'rearTire': '180/55/R17',
+        'rearTire': '180/60/R17',
         'rearTire': '190/50/R17',
-        'rearTire': '190/50/R17',
         'rearTire': '190/55/R17',
+        'rearTire': '200/55/R17',
+        'rearTire': '200/60/R17'
+    },
+
+// 208.21 - 447.84
+    'Pirelli Diablo Supercorsa SP V3': {
+        'frontTire': '120/70/R17',
+        'rearTire': '180/60/R17',
         'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
+        'rearTire': '200/55/R17',
+        'rearTire': '200/60/R17'       
     },
 
-    'Michelin Power Cup 2': {
-        'frontTire': '120/70',
-        'rearTire': '190/55',
-        'rearTire': '190/55'
-        
-    },
-    'Pirelli Diablo Supercorsa SP V3':{
-        'frontTire': '120/70',
-        'rearTire': '180/55',
-        'cc': '636cc',
-        'oil': '10W-40',
-        'oilFilter': '303c',
-        'power': '127hp'
-    },
-    'Pirelli Diablo Supercorsa SP V4':{
-        'frontTire': '120/70',
-        'rearTire': '180/55',
-        'cc': '636cc',
-        'oil': '10W-40',
-        'oilFilter': '303c',
-        'power': '127hp'
-    },
-    'Dunlop Sportsmart TT':{
-        'frontTire': '120/70',
-        'rearTire': '190/55',
-        'cc': '999cc',
-        'oil': '5W-40',
-        'oilFilter': '160',
-        'power': '205hp'
-    },
-    'Metzeler Racetec RR':{
-        'frontTire': '120/70',
-        'rearTire': '160/60',
-        'cc': '955cc',
-        'oil': '15W-50',
-        'oilFilter': '159', 
-        'power': '153hp'
-    },
-    'Continental ContiRaceAttack Comp':{
-        'frontTire': '120/70',
-        'rearTire': '160/60',
-        'cc': '1103cc',
-        'oil': '15W-50',
-        'oilFilter': '159',
-        'power': '208hp'
-    },
-    'Avon 3D Ultra Evo':{
-        'frontTire': '120/70',
-        'rearTire': '190/55',
-        'cc': '998cc',
-        'oil': '10W-40',
-        'oilFilter': '159',
-        'power': '198hp'
-    },
-    'IRC RX-01 Road Winner':{
-        'frontTire': '120/70',
-        'rearTire': '190/55',
-        'cc': '998cc',
-        'oil': '10W-40',
-        'oilFilter': '159',
-        'power': '198hp'
-    },
+    // 'Metzeler Racetec RR':{
+    //     'frontTire': '120/70',
+    //     'rearTire': '160/60',
+    // },
 
+    // 'Avon 3D Ultra Evo':{
+    //     'frontTire': '120/70',
+    //     'rearTire': '190/55',
+    // },
+    // 'IRC RX-01 Road Winner':{
+    //     'frontTire': '120/70',
+    //     'rearTire': '190/55',
 
+    // },
 
-
-
-
-
-
-    'unknown':{
-        'frontTire': 'unknown',
-        'rearTire': 'unknown',
-        'cc': 'unknown' 
-    }
+    // 'unknown':{
+    //     'frontTire': 'unknown',
+    //     'rearTire': 'unknown',
+    //     'cc': 'unknown' 
+    // }
 }
 const trackInfo = {
   '': {
