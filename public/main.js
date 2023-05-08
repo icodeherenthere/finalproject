@@ -1,5 +1,17 @@
 var add = document.getElementsByClassName("add");
 var trash = document.getElementsByClassName("fa-trash");
+var calculate = document.getElementById('calculate')
+
+// function to calculate calories needed based on height and weight
+function calculateCalories(height, weight, sex, age) {
+  if (sex === 'male') {
+    let caloriesNeededM = 9.99 * (weight * 0.45359237) + 6.25 * (height * 2.54) - (4.92 * age + 5);
+    return caloriesNeededM;
+  } else if (sex === 'female') {
+    let caloriesNeededF = 9.99 * (weight * 0.45359237) + 6.25 * (height * 2.54) - (4.92 * age - 161);
+    return caloriesNeededF;
+  }
+}
 
 Array.from(add).forEach(function(element) {
       element.addEventListener('click', function(){

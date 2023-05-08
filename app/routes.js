@@ -36,6 +36,30 @@ module.exports = function(app, passport, db) {
       })
     })
 
+    app.post('/calculate', (req, res) => {
+      db.collection('info').save({year: req.body.year, motorcycleBrand: req.body.motorcycleBrand, motorcycleModel: req.body.motorcycleModel,engineSize: req.body.engineSize}, (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+        res.redirect('/profile')
+      })
+    })
+
+    app.post('/calculate', function(req, res) {
+      db.collection('info').save({}, (err, result) => { 
+        if (err) return console.log(err)
+      // extract height and weight from form data
+      let sex = req.body.male ? 'male' : (req.body.female ? 'female' : null);
+      let height = req.body.height;
+      let weight = req.body.weight;
+      let age = req.body.age;
+    
+      // calculate calories needed
+      let caloriesNeeded = calculateCalories(height, weight, sex, age);
+    
+      // render the template and pass in the calculated calories
+      res.render('calories', { caloriesNeeded: caloriesNeeded });
+    })});
+
     app.put('/vehicles', (req, res) => {
       db.collection('info').findOneAndUpdate(
         { year: req.body.year, motorcycleBrand: req.body.motorcycleBrand, motorcycleModel: req.body.motorcycleModel, engineSize: req.body.engineSize },
