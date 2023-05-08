@@ -1,4 +1,4 @@
-module.exports = function(app, passport, db) {
+module.exports = function(app, passport, db, ObjectId) {
 
 // normal routes ===============================================================
 
@@ -27,16 +27,9 @@ module.exports = function(app, passport, db) {
     });
 
 // message board routes ===============================================================
-
+// can i use object id here or would i need to specify what i am saving?
+// would it be easier to save everything under one collection?
     app.post('/vehicles', (req, res) => {
-      db.collection('info').save({year: req.body.year, motorcycleBrand: req.body.motorcycleBrand, motorcycleModel: req.body.motorcycleModel,engineSize: req.body.engineSize}, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('/profile')
-      })
-    })
-
-    app.post('/calculate', (req, res) => {
       db.collection('info').save({year: req.body.year, motorcycleBrand: req.body.motorcycleBrand, motorcycleModel: req.body.motorcycleModel,engineSize: req.body.engineSize}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
@@ -58,6 +51,8 @@ module.exports = function(app, passport, db) {
     
       // render the template and pass in the calculated calories
       res.render('calories', { caloriesNeeded: caloriesNeeded });
+      console.log('saved to database')
+        res.redirect('/profile')
     })});
 
     app.put('/vehicles', (req, res) => {
