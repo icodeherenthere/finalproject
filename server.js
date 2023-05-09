@@ -152,27 +152,7 @@ const tiresToUse = {
         'rearTire': '200/55/R17',
         'rearTire': '200/60/R17'       
     },
-
-    // 'Metzeler Racetec RR':{
-    //     'frontTire': '120/70',
-    //     'rearTire': '160/60',
-    // },
-
-    // 'Avon 3D Ultra Evo':{
-    //     'frontTire': '120/70',
-    //     'rearTire': '190/55',
-    // },
-    // 'IRC RX-01 Road Winner':{
-    //     'frontTire': '120/70',
-    //     'rearTire': '190/55',
-
-    // },
-
-    // 'unknown':{
-    //     'frontTire': 'unknown',
-    //     'rearTire': 'unknown',
-    //     'cc': 'unknown' 
-    // }
+    
 }
 const trackInfo = {
   '': {
