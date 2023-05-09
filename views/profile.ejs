@@ -52,8 +52,7 @@
                     <span><%= vehicles[i].motorcycleBrand %></span>
                     <span><%= vehicles[i].motorcycleModel %></span>
                     <span><%= vehicles[i].engineSize %></span>
-                    <!-- <span><button class="btn btn-primary">Add</button></span> -->
-                    <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    <span><button class="deleteVehicles" data-id="<%= vehicles[i]._id %>"><i  class="fa fa-trash" aria-hidden="true"></i></button></span>
                   </li>
                 <% } %>
               </ul>
@@ -68,33 +67,33 @@
               </ul>
             <!-- find a wau to have the calculator work not sure weather to do intervals or not -->
               <h1>Calorie Calculator</h1>
-                <form action="/calculate" id="calculate" method="POST">
+                <form>
                   <label for="height">Height (in inches):</label>
                   <input type="number" id="height" name="height" required>
 
                   <label for="weight">Weight (in pounds):</label>
                   <input type="number" id="weight" name="weight" required>
 
-                  <label for="age">Weight (in pounds):</label>
+                  <label for="age">Age:</label>
                   <input type="number" id="age" name="age" required>
 
-                  <select id="activity" name="activity">
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
+                  <select id="sex" name="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                   </select>
 
                   <label for="activity">Session Time Total:</label>
                   <select id="activity" name="activity">
-                    <option value="1">20 mins</option>
-                    <option value="2">40 mins</option>
-                    <option value="3">1 hr ()</option>
-                    <option value="4">1 Day(7 sessions)</option>
-                    <option value="5">Full weekend(2 days or 14 sessions)</option>
+                    <option value=".3">20 mins</option>
+                    <option value=".6">40 mins</option>
+                    <option value="1">1 hr ()</option>
+                    <option value="7">1 Day(7 sessions)</option>
+                    <option value="14">Full weekend(2 days or 14 sessions)</option>
                   </select>
 
-                  <button type="submit">Calculate</button>
+                  <button type="button" class="calculate">Calculate</button>
                 </form>
-                <h3>Calories Needed <% %></h3>
+                <h3 id="calCount"></h3>
                 <h3> Water(in ounces)<% %> <span>Water(in liters)</span></h3>
                 
               <table>
@@ -138,3 +137,5 @@
               </form>
             </div>
     </div>
+</body>
+<script src="/main.js"></script>

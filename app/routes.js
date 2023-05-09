@@ -71,10 +71,9 @@ module.exports = function(app, passport, db, ObjectId) {
     })
   
     app.delete('/vehicles', (req, res) => {
-      const objectId = ObjectId(id);
-      db.collection('info').deleteOne({_id: objectId}, (err, result) => {
+      db.collection('info').findOneAndDelete({_id: ObjectId(req.body.id)}, (err, result) => {
         if (err) return res.send(500, err)
-        res.send('Vehicle deleted!')
+        res.redirect('/profile')
       })
     })
 
