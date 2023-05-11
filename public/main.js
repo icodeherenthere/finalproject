@@ -1,73 +1,42 @@
-var add = document.getElementsByClassName("add");
 var calculate = document.getElementsByClassName('calculate');
+var height = document.querySelector('#height');
+var age = document.querySelector('#age');
+var weight = document.querySelector('#weight');
+var sex = document.querySelector('#sex');
+var add = document.getElementsByClassName("add");
 var gone = document.getElementsByClassName('deleteVehicles');
 var water = document.getElementsByClassName('ounces liters');
-var activity = document.getElementById("activity");
-var value = activity.value;
-var selectedOption = activity.options[activity.selectedIndex]
-var timeMultiplier = parseFloat(selectedOption.value);
 
 // function to calculate calories needed based on height, weight, sex, age, and timeMultiplier
-function calculateCalories(height, weight, sex, age) {
-  let x = 400 * timeMultiplier
-  if (sex === 'male') {
-    let caloriesNeededM = (9.99 * (weight * 0.45359237) + 6.25 * (height * 2.54) - (4.92 * age + 5)) * x;
-    return caloriesNeededM;
-  } else if (sex === 'female') {
-    let caloriesNeededF = (9.99 * (weight * 0.45359237) + 6.25 * (height * 2.54) - (4.92 * age - 161)) * x;
-    return caloriesNeededF;
+function calculateCalories() {
+  var timeMultiplier = parseFloat(document.getElementById('activity').value);
+  console.log(timeMultiplier, 'here')
+  let x = timeMultiplier * 400;
+  console.log(x , 'here')
+  if (sex.value === 'male') {
+    let caloriesNeededM = (9.99 * (weight.value * 0.45359237) + 6.25 * (height.value * 2.54) - (4.92 * age.value + 5)) * timeMultiplier;
+    return Math.ceil(caloriesNeededM);
+  } else if (sex.value === 'female') {
+    let caloriesNeededF = (9.99 * (weight.value * 0.45359237) + 6.25 * (height.value * 2.54) - (4.92 * age.value - 161)) * timeMultiplier;
+    return Math.ceil(caloriesNeededF);
   }
-  console.log(height)
-  console.log(weight)
-  console.log(age)
-  console.log(timeMultiplier)
-  console.log(sex)
 }
+
+Array.from(calculate).forEach(function(element){
+  element.addEventListener('click', function(e){
+    let calculation = calculateCalories();
+    let waterIntake = (weight / 2);
+    document.getElementById('calCount').textContent = 'Calories Needed  '+ calculation + ' or ' + ' ' + Math.ceil(calculation * .3) + ' per session';
+    document.getElementById('ounces').textContent = `Water(in ounces) ${waterIntake}`;
+    document.getElementById('liters').value = waterIntake * 0.02957;
+  });
+});
 
 // 8 ounces
 // 1 oz = 0.02957 l
 
-// function to calculate calories needed based on height and weight
-function calculateWater(height, weight, sex, age, timeMultiplier) {
-  
-  if (sex === 'male') {
-    let caloriesNeededM = 9.99 * (weight * 0.45359237) + 6.25 * (height * 2.54) - (4.92 * age + 5);
-    return caloriesNeededM;
-  } else if (sex === 'female') {
-    let caloriesNeededF = 9.99 * (weight * 0.45359237) + 6.25 * (height * 2.54) - (4.92 * age - 161);
-    return caloriesNeededF;
-  }
-  
 
-  console.log(height)
-  console.log(weight)
-  console.log(age)
-  console.log(timeMultiplier)
-  console.log(sex)
-}
-// finds out how muc calories someone needs
-Array.from(calculate).forEach(function(element){
-  element.addEventListener('click', function(e){
-    let calculatation = calculateWater(
-      document.getElementById('height'),
-      document.getElementById('weight'),
-      document.getElementById('sex'),
-      document.getElementById('age'),
-      parseFloat(document.getElementById('activity'))
-    )
-    document.getElementById('calCount').textContent = 'Calories Needed ' + calculatation
-})});
 
-Array.from(calculate).forEach(function(element){
-  element.addEventListener('click', function(e){
-    let calculatation = calculateCalories(
-      document.getElementById('height'),
-      document.getElementById('weight'),
-      document.getElementById('sex'),
-      parseFloat(document.getElementById('activity'))
-    )
-    document.getElementById('calCount').textContent = 'Calories Needed ' + calculatation
-})});
 
 Array.from(add).forEach(function(element) {
       element.addEventListener('click', function(){

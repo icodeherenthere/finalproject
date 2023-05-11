@@ -83,14 +83,14 @@
                     <option value="female">Female</option>
                   </select>
 
-                  <% var options = ['Option 1', 'Option 2', 'Option 3']; %>
                   <label for="activity">Session Time Total:</label>
-                  <select id="activity" name="activity" onchange="showSelectedOption()">
-                    <option value=".3">20 mins</option>
-                    <option value=".6">40 mins</option>
-                    <option value="1">1 hr ()</option>
-                    <option value="7">1 Day(7 sessions)</option>
-                    <option value="14">Full weekend(2 days or 14 sessions)</option>
+                  <select id="activity" name="activity" >
+                    <option value="">Session Length</option>
+                    <option value=".3">20 mins(1 Sessions)</option>
+                    <option value=".6">40 mins(2 Sessions)</option>
+                    <option value="1">1 hr (3 Sessions)</option>
+                    <option value="2.3">1 Day(7 Sessions)</option>
+                    <option value="4.6">Full weekend(2 days or 14 sessions)</option>
                   </select>
 
                   <button type="button" class="calculate">Calculate</button>
