@@ -1,3 +1,5 @@
+const { model } = require("mongoose");
+
 module.exports = function(app, passport, db, ObjectId) {
 
 // normal routes ===============================================================
@@ -18,6 +20,13 @@ module.exports = function(app, passport, db, ObjectId) {
         })
     });
 
+    // CALCULATOR PAGE =========================
+    app.get('/calculator', function(req, res) {
+      res.render('calculator.ejs');
+    });
+
+    
+
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout(() => {
@@ -28,14 +37,56 @@ module.exports = function(app, passport, db, ObjectId) {
 
 // message board routes ===============================================================
 // can i use object id here or would i need to specify what i am saving?
-// would it be easier to save everything under one collection?
     app.post('/vehicles', (req, res) => {
-      db.collection('info').save({year: req.body.year, motorcycleBrand: req.body.motorcycleBrand, motorcycleModel: req.body.motorcycleModel,engineSize: req.body.engineSize}, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.redirect('/profile')
+      let url = `https://api.api-ninjas.com/v1/motorcycles?year=${req.body.year}&make=${req.body.motorcycleBrand}&model=${req.body.motorcycleModel}`
+      let options = {
+        method: 'GET',
+        headers: { 'x-api-key': 'd3FBQsNaOed6pB4pZs62yw==NpduHXbVBG1LmGg1' }
+      }
+      fetch(url, options)
+      .then(res => res.json()) // parse response as JSON
+      .then(data => {
+        if (data.length === 0) {
+          alert('Motorcycle not found');
+          return;
+        }
+        
+        let frontTire = data[0].front_tire
+        let rearTire = data[0].rear_tire
+        if (!frontTire || !rearTire) {
+          alert('No tire sizes found for this motorcycle');
+          return;
+        }
+
+        const updatedFrontSize = frontTire.replace(/(.+)-(\d+)/, '$1/R$2');
+        const updatedRearSize = rearTire.replace(/(.+)-(\d+)/, '$1/R$2');
+        console.log(updatedFrontSize, 'front')
+        console.log(updatedRearSize, 'rear')
+        db.collection('info').save({year: req.body.year, motorcycleBrand: req.body.motorcycleBrand, motorcycleModel: req.body.motorcycleModel,engineSize: req.body.engineSize, frontTire : updatedFrontSize, rearTire : updatedRearSize}, (err, result) => {
+          if (err) return console.log(err)
+          console.log('saved to database')
+          res.redirect('/profile')
+        })
+        
       })
-    })
+    .catch(err => {
+      console.log(`error ${err}`)
+    });
+      
+    });
+
+    app.post('/vehicles', (req, res) => {
+      const trackNeedsId = req.body.trackNeedsId;
+    console.log(trackNeedsId)
+      db.collection('trackNeeds').updateOne(
+        { _id: ObjectId(trackNeedsId) },
+        (err, result) => {
+          if (err) return console.log(err);
+          console.log('RSVP saved to database');
+          res.redirect('/profile');
+        }
+      );
+    });
 
     app.post('/calculate', function(req, res) {
       db.collection('info').save({}, (err, result) => { 

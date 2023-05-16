@@ -7,6 +7,9 @@ var add = document.getElementsByClassName("add");
 var gone = document.getElementsByClassName('deleteVehicles');
 var water = document.getElementsByClassName('ounces liters');
 
+// disable the submit button if req isnt filled in didnt provide yr make model
+// build validation within api
+
 // function to calculate calories needed based on height, weight, sex, age, and timeMultiplier
 function calculateCalories() {
   var timeMultiplier = parseFloat(document.getElementById('activity').value);
@@ -31,9 +34,6 @@ Array.from(calculate).forEach(function(element){
     document.getElementById('liters').value = waterIntake * 0.02957;
   });
 });
-
-// 8 ounces
-// 1 oz = 0.02957 l
 
 
 
@@ -83,3 +83,24 @@ Array.from(gone).forEach(function(element){
   element.addEventListener('click', function(e){
   deleteVehicles(this.getAttribute('data-id'))
 })});
+
+document.getElementById('selectVehicle').addEventListener('change', function(){
+  // when they select vehicle we will get the front and rear tire sizes from info collection then use those to to look up tire brands that match the sizes from constant.js 
+  function searchFrontTire(array) {
+    for (let key in array) {
+      if (array[key]['frontTire'] === '120/70/R17') {
+        return key;
+      }
+    }
+    return 'Not found';
+  }
+  function searchRearTire(array) {
+      for (let key in array) {
+        if (array[key]['rearTire'] === '120/70/R17') {
+          return key;
+        }
+      }
+      return 'Not found';
+    }
+  
+})

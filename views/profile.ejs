@@ -9,13 +9,21 @@
 		<link rel="stylesheet" href="/css/main.css" />
 		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
 </head>
-<body>
-<div class="container">
-
-    <div class="page-header text-center">
-        <h1>Profile Page</h1>
+<body><header id="header" class="alt">
+  <h1 id="logo"><a href="index.html">Profile Page</a></h1>
+  <nav id="nav">
+    <ul>
+      <li class="current"><a href="index.html">Welcome</a></li>
+      <li>
+        <h1></h1>
         <a href="/logout" class="button primary">Log Out</a>
-    </div>
+      </li>
+      <li><a href="calculator" class="button primary">Calorie Calculator</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  
 
     <div class="row">
 
@@ -42,102 +50,141 @@
 
         
         <div class="col-sm-6">
-            <h3>Vehicles</h3>
-<!-- tires needs to be added not sure f to make a api or use one -->
-            <div class="container-fluid float-left">
-              <ul class="list-group vehicles">
-                <% for(var i=0; i<vehicles.length; i++) {%>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <span><%= vehicles[i].year %></span>
-                    <span><%= vehicles[i].motorcycleBrand %></span>
-                    <span><%= vehicles[i].motorcycleModel %></span>
-                    <span><%= vehicles[i].engineSize %></span>
-                    <span><button class="deleteVehicles" data-id="<%= vehicles[i]._id %>"><i  class="fa fa-trash" aria-hidden="true"></i></button></span>
-                  </li>
-                <% } %>
-              </ul>
-              <h3>Tires to Try/Use</h3>
-              <ul>
-                <% for(var i=0; i<vehicles.length; i++) {%>
-                  <li>
-                    <span><% %> Brand Name</span>
-                    <span><% %> Tire Size</span>
-                  </li>
-                <% } %>
-              </ul>
-            <!-- find a wau to have the calculator work not sure weather to do intervals or not -->
-              <h1>Calorie Calculator</h1>
-                <form>
-                  <label for="height">Height (in inches):</label>
-                  <input type="number" id="height" name="height" required>
 
-                  <label for="weight">Weight (in pounds):</label>
-                  <input type="number" id="weight" name="weight" required>
-
-                  <label for="age">Age:</label>
-                  <input type="number" id="age" name="age" required>
-
-                  <select id="sex" name="sex" required>
-                    <option disabled selected>Sex</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-
-                  <label for="activity">Session Time Total:</label>
-                  <select id="activity" name="activity" >
-                    <option value="">Session Length</option>
-                    <option value=".3">20 mins(1 Sessions)</option>
-                    <option value=".6">40 mins(2 Sessions)</option>
-                    <option value="1">1 hr (3 Sessions)</option>
-                    <option value="2.3">1 Day(7 Sessions)</option>
-                    <option value="4.6">Full weekend(2 days or 14 sessions)</option>
-                  </select>
-
-                  <button type="button" class="calculate">Calculate</button>
-                </form>
-                <h3 id="calCount"></h3>
-                <h3 id="ounces"> Water(in ounces)<span id="liters">Water(in liters)</span></h3>
-                
-              <table>
-
-              </table>
-            
-              <form action="/vehicles" method="POST" class="form-horizontal">
-                <div class="form-group">
-                  <label for="year" class="col-sm-2 control-label">Year:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="year" class="form-control">
-                  </div>
-                </div>
-            
-                <div class="form-group">
-                  <label for="motorcycleBrand" class="col-sm-2 control-label">Brand:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="motorcycleBrand" class="form-control">
-                  </div>
-                </div>
-            
-                <div class="form-group">
-                  <label for="motorcycleModel" class="col-sm-2 control-label">Model:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="motorcycleModel" class="form-control">
-                  </div>
-                </div>
-            
-                <div class="form-group">
-                  <label for="engineSize" class="col-sm-2 control-label">Engine Size:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="engineSize" class="form-control">
-                  </div>
-                </div>
-            
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </div>
-              </form>
+          <form action="/vehicles" method="POST" class="form-horizontal">
+            <div class="form-group">
+              <label for="year" class="col-sm-2 control-label">Year:</label>
+              <div class="col-sm-10">
+                <input type="text" name="year" class="form-control" required>
+              </div>
             </div>
+        
+            <div class="form-group">
+              <label for="motorcycleBrand" class="col-sm-2 control-label">Brand:</label>
+              <div class="col-sm-10">
+                <input type="text" name="motorcycleBrand" class="form-control" required>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label for="motorcycleModel" class="col-sm-2 control-label">Model:</label>
+              <div class="col-sm-10">
+                <input type="text" name="motorcycleModel" class="form-control" required>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label for="engineSize" class="col-sm-2 control-label">Engine Size:</label>
+              <div class="col-sm-10">
+                <input type="text" name="engineSize" class="form-control" required>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+            <h3>Vehicles</h3>
+            <div class="container-fluid float-left">
+              
+              
+              <table>
+                <tr>
+                  <!-- add more later on  -->
+                  
+                </tr>
+              </table> 
+            </div>
+        </div>
     </div>
+    <section>
+      <h1>Build your Trackday!</h1>
+      <section>
+        <h2>WHAT VEHICLE ARE YOU BRINGING?</h2>
+        <select class="list-group vehicles" id="selectVehicle">
+          <option class="list-group-item d-flex justify-content-between align-items-center"></option>
+        <% for(var i=0; i<vehicles.length; i++) {%>
+          <option>
+            <%= vehicles[i].year %> 
+             <%= vehicles[i].motorcycleBrand %> 
+             <%= vehicles[i].motorcycleModel %> 
+             <%= vehicles[i].engineSize %>
+            <span>
+              <button class="deleteVehicles" data-id="<%= vehicles[i]._id %>">
+                <i  class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </span>
+          </option>
+          
+        <% } %>
+        </select>
+
+             
+        <!-- <ul class="list-group vehicles">
+          <% for(var i=0; i<vehicles.length; i++) {%>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><%= vehicles[i].year %></span>
+              <span><%= vehicles[i].motorcycleBrand %></span>
+              <span><%= vehicles[i].motorcycleModel %></span>
+              <span><%= vehicles[i].engineSize %></span>
+              <span><button class="deleteVehicles" data-id="<%= vehicles[i]._id %>"><i  class="fa fa-trash" aria-hidden="true"></i></button></span>
+            </li>
+          <% } %>
+        </ul> -->
+      </section>
+      <section>
+        <h2>Course?</h2>
+        <select id="where" name="event" >
+          <option value="">Tracks</option>
+          <option value="">Palmer</option>
+        </select>
+      </section>
+      <section>
+        <h2>Session Length</h2>
+        <p>
+          <label for="activity">Session Time Total:</label>
+            <select id="activity" name="activity" >
+              <option value="">Session Length</option>
+              <option value=".3">20 mins(1 Sessions)</option>
+              <option value=".6">40 mins(2 Sessions)</option>
+              <option value="1">1 hr (3 Sessions)</option>
+              <option value="2.3">1 Day(7 Sessions)</option>
+              <option value="4.6">Full weekend(2 days or 14 sessions)</option>
+            </select>
+        </p>
+      </section>
+      <section>
+        <h2>Tires to Try/Use</h2>
+        <ul>
+          <!-- need to have the tire list populate here -->
+          <% for(var i=0; i<vehicles.length; i++) {%>
+            <li>
+              <span><% %> Brand Name</span>
+              <span><% %> Tire Size</span>
+            </li>
+          <% } %>
+        </ul>
+      </section>
+      <section>
+        <!-- need to have the list of things to prepare for to populate here also add a check button to it-->
+        <h2>Requirments</h2>
+        <p>
+      
+        </p>
+      </section>
+    </section>
+
+    <!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 </body>
 <script src="/main.js"></script>
+

@@ -1852,7 +1852,6 @@ input, select, textarea {
 	}
 
 		.image:before {
-			background: url("images/overlay.png");
 			content: '';
 			height: 100%;
 			left: 0;
@@ -2213,7 +2212,7 @@ input, select, textarea {
 
 		.wrapper.style2 {
 			background-color: #83d3c9;
-			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
+			background-image:url('/public/img/trackAttack.png');
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
 			background-size: 25em, 25em;
@@ -2225,7 +2224,7 @@ input, select, textarea {
 			.wrapper.style2 input[type="reset"]:hover,
 			.wrapper.style2 button:hover,
 			.wrapper.style2 .button:hover {
-				background: rgba(255, 255, 255, 0.15) !important;
+				background-image:url('/public/img/trackAttack.png') !important;
 			}
 
 			.wrapper.style2 input[type="button"].primary,
@@ -2527,7 +2526,7 @@ input, select, textarea {
 	#banner {
 		background-attachment: scroll, scroll, scroll, fixed;
 		background-color: #645862;
-		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image:url('/public/img/trackAttack.png');
 		background-position: bottom left, bottom right, top left, top center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 		background-size: 25em, 25em, auto, cover;
@@ -2593,7 +2592,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-image: url("images/dark-tl.svg"), url("images/dark-tr.svg"), url("images/dark-bl.svg"), url("images/dark-br.svg");
+		background-image:url('/public/img/trackAttack.png');
 		background-position: top left, top right, bottom left, bottom right;
 		background-repeat: no-repeat;
 		background-size: 25em;
@@ -2625,7 +2624,7 @@ input, select, textarea {
 	#cta {
 		background-attachment: scroll, scroll, scroll, fixed;
 		background-color: #645862;
-		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image:url('/public/img/trackAttack.png');
 		background-position: top left, top right, top left, bottom center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 		background-size: 25em, 25em, auto, cover;
@@ -3339,3 +3338,79 @@ input, select, textarea {
 			}
 
 	}
+
+	/* CALULATOR */
+
+	.special {
+		background-color: #f5f5f5;
+		padding: 2rem;
+		text-align: center;
+		margin-top: 2rem;
+	}
+	
+	.special h1 {
+		margin-top: 1rem;
+		font-size: 3rem;
+	}
+	
+	.special form {
+		margin-top: 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.special label {
+		display: block;
+		margin: 1rem;
+		font-size: 1.2rem;
+		text-align: left;
+	}
+	
+	.special input {
+		margin: 1rem;
+		padding: 0.5rem;
+		font-size: 1.2rem;
+		border-radius: 0.5rem;
+		border: 1px solid #ccc;
+	}
+	
+	.special select {
+		margin: 1rem;
+		padding: 0.5rem;
+		font-size: 1.2rem;
+		border-radius: 0.5rem;
+		border: 1px solid #ccc;
+	}
+	
+	.special button {
+		margin: 1rem;
+		padding: 0.5rem 1rem;
+		font-size: 1.2rem;
+		border-radius: 0.5rem;
+		border: none;
+		background-color: #007bff;
+		color: #fff;
+		cursor: pointer;
+	}
+	
+	.special h3 {
+		margin-top: 2rem;
+		font-size: 2rem;
+	}
+	
+	#calCount {
+		color: #007bff;
+	}
+	
+	#ounces {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	#liters {
+		margin-left: 2rem;
+		font-size: 1.5rem;
+	}
+	

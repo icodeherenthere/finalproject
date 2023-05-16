@@ -17,7 +17,7 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 var ObjectId = require('mongodb').ObjectID
-
+var parts = require("./public/constants.js"); // destruct find out how to make this work
 var db
 
 // configuration ===============================================================
@@ -54,107 +54,11 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
+console.log(parts.tiresToUse)//struct
 
 
 // may switch to an api that uses locations instead and health
-const tiresToUse = {
-    // price 145.04-391.05
-    'Bridgestone Battlax Racing R11':{ 
-        'frontTire': '120/70/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '200/55/R17'
-        
-    },
 
-// price 126.85-302.10
-    'Bridgestone Battlax Racing R10':{
-        'frontTire': '110/70/R17',
-        'frontTire': '120/70/R17',
-        'rearTire': '140/70/R17',
-        'rearTire': '150/60/R17',
-        'rearTire': '180/55/R17',
-        'rearTire': '190/50/R17',
-        'rearTire': '190/50/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '200/55/R17',
-        'rearTire': '200/55/R17'
-    },
-
-// 126.85 - 357.12
-    'Bridgestone Battlax HyperSport S22':{
-        'frontTire': '110/70/R17',
-        'frontTire': '120/70/R17',
-        'rearTire': '140/70/R17',
-        'rearTire': '150/60/R17',
-        'rearTire': '160/60/R17',
-        'rearTire': '180/55/R17',
-        'rearTire': '180/60/R17',
-        'rearTire': '190/50/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '200/55/R17',
-    },
-// 137.15 - 360.43
-    'Bridgestone Battlax HyperSport S21':{
-        'frontTire': '130/70/R16',
-        'frontTire': '120/60/R17',
-        'frontTire': '120/70/R17',
-        'rearTire': '160/60/R17',
-        'rearTire': '180/55/R17',
-        'rearTire': '190/50/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '200/55/R17',
-    },
-
-    // 227.66 - 385.95
-    'Continental ContiRaceAttack 2':{
-        'frontTire': '120/70/R17',
-        'rearTire': '160/60/R17',
-        'rearTire': '180/60/R17',
-        'rearTire': '190/55/R17'
-    },
-
-// 132.58 - 298.74
-    'Dunlop Sportsmart TT':{
-        'frontTire': '110/70/R17',
-        'frontTire': '120/70/R17',
-        'frontTire': '120/70/R19',
-        'rearTire': '140/70/R17',
-        'rearTire': '150/60/R17',
-        'rearTire': '160/60/R17',
-        'rearTire': '170/60/R17',
-        'rearTire': '180/55/R17',
-        'rearTire': '180/60/R17',
-        'rearTire': '190/55/R17'
-    },
-
-    // 215.83 -461.28
-    'Pirelli Diablo Supercorsa SP V4': {
-        'frontTire': '120/70/R17',
-        'rearTire': '140/70/R17',
-        'rearTire': '150/60/R17',
-        'rearTire': '180/55/R17',
-        'rearTire': '180/60/R17',
-        'rearTire': '190/50/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '200/55/R17',
-        'rearTire': '200/60/R17'
-    },
-
-// 208.21 - 447.84
-    'Pirelli Diablo Supercorsa SP V3': {
-        'frontTire': '120/70/R17',
-        'rearTire': '180/60/R17',
-        'rearTire': '190/55/R17',
-        'rearTire': '200/55/R17',
-        'rearTire': '200/60/R17'       
-    },
-    
-}
 const trackInfo = {
   '': {
       'frontTire': '120/70',
