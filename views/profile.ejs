@@ -2,27 +2,29 @@
 <html>
 <head>
     <title>Track Attack</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/noscriptProfile.css" />
 		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+    
 </head>
-<body><header id="header" class="alt">
-  <h1 id="logo"><a href="index.html">Profile Page</a></h1>
+<body id="profile">
+<header id="header" class="alt">
+  <h1 id="logo">Profile Page</h1>
   <nav id="nav">
     <ul>
-      <li class="current"><a href="index.html">Welcome</a></li>
-      <li>
-        <h1></h1>
-        <a href="/logout" class="button primary">Log Out</a>
-      </li>
+      <li class="current">Welcome</li>
       <li><a href="calculator" class="button primary">Calorie Calculator</a></li>
+      <li>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><strong>Personal Best</strong></button>
+      </li>
+      <li><a href="/logout" class="button primary">Log Out</a></li>
     </ul>
   </nav>
 </header>
-<div class="container">
+<div class="container" id="different">
   
 
     <div class="row">
@@ -46,103 +48,90 @@
 
             </div>
         </div> -->
-
-
         
         <div class="col-sm-6">
 
-          <form action="/vehicles" method="POST" class="form-horizontal">
-            <div class="form-group">
-              <label for="year" class="col-sm-2 control-label">Year:</label>
-              <div class="col-sm-10">
-                <input type="text" name="year" class="form-control" required>
-              </div>
-            </div>
-        
-            <div class="form-group">
-              <label for="motorcycleBrand" class="col-sm-2 control-label">Brand:</label>
-              <div class="col-sm-10">
-                <input type="text" name="motorcycleBrand" class="form-control" required>
-              </div>
-            </div>
-        
-            <div class="form-group">
-              <label for="motorcycleModel" class="col-sm-2 control-label">Model:</label>
-              <div class="col-sm-10">
-                <input type="text" name="motorcycleModel" class="form-control" required>
-              </div>
-            </div>
-        
-            <div class="form-group">
-              <label for="engineSize" class="col-sm-2 control-label">Engine Size:</label>
-              <div class="col-sm-10">
-                <input type="text" name="engineSize" class="form-control" required>
-              </div>
-            </div>
-        
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </form>
-            <h3>Vehicles</h3>
+          
+            <!-- <h3>Vehicles</h3>
             <div class="container-fluid float-left">
               
               
               <table>
                 <tr>
-                  <!-- add more later on  -->
+                   add more later on  
                   
                 </tr>
               </table> 
-            </div>
+            </div> -->
         </div>
     </div>
+    <h1><strong>Build your Trackday!</strong></h1>
     <section>
-      <h1>Build your Trackday!</h1>
-      <section>
-        <h2>WHAT VEHICLE ARE YOU BRINGING?</h2>
+      <h3><strong>WHAT VEHICLE ARE YOU BRINGING?</strong></h3>
         <select class="list-group vehicles" id="selectVehicle">
-          <option class="list-group-item d-flex justify-content-between align-items-center"></option>
+          <option class="list-group-item d-flex justify-content-between align-items-center">Which One?</option>
         <% for(var i=0; i<vehicles.length; i++) {%>
           <option>
             <%= vehicles[i].year %> 
-             <%= vehicles[i].motorcycleBrand %> 
-             <%= vehicles[i].motorcycleModel %> 
-             <%= vehicles[i].engineSize %>
+            <%= vehicles[i].motorcycleBrand %> 
+            <%= vehicles[i].motorcycleModel %> 
+            <%= vehicles[i].engineSize %>
             <span>
               <button class="deleteVehicles" data-id="<%= vehicles[i]._id %>">
                 <i  class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </span>
           </option>
-          
         <% } %>
         </select>
-
-             
-        <!-- <ul class="list-group vehicles">
-          <% for(var i=0; i<vehicles.length; i++) {%>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span><%= vehicles[i].year %></span>
-              <span><%= vehicles[i].motorcycleBrand %></span>
-              <span><%= vehicles[i].motorcycleModel %></span>
-              <span><%= vehicles[i].engineSize %></span>
-              <span><button class="deleteVehicles" data-id="<%= vehicles[i]._id %>"><i  class="fa fa-trash" aria-hidden="true"></i></button></span>
-            </li>
-          <% } %>
-        </ul> -->
-      </section>
       <section>
-        <h2>Course?</h2>
+        <h2><strong>WHAT VEHICLE ARE YOU ADDING?</strong></h2>
+        <form action="/vehicles" method="POST" class="form-horizontal">
+          <div class="form-group">
+            <label for="year" class="col-sm-2 control-label">Year:</label>
+            <div class="col-sm-10">
+              <input type="text" name="year" class="form-control" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="motorcycleBrand" class="col-sm-2 control-label">Brand:</label>
+            <div class="col-sm-10">
+              <input type="text" name="motorcycleBrand" class="form-control" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="motorcycleModel" class="col-sm-2 control-label">Model:</label>
+            <div class="col-sm-10">
+              <input type="text" name="motorcycleModel" class="form-control" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <label for="engineSize" class="col-sm-2 control-label">Engine Size:</label>
+            <div class="col-sm-10">
+              <input type="text" name="engineSize" class="form-control" required>
+            </div>
+          </div>
+      
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+        
+      </section>
+      <section class = "stepOne ">
+        <h2><strong>Course?</strong></h2>
         <select id="where" name="event" >
           <option value="">Tracks</option>
           <option value="">Palmer</option>
         </select>
       </section>
-      <section>
-        <h2>Session Length</h2>
+      <section class = "stepTwo ">
+        <h2><strong>Session Length</strong></h2>
         <p>
           <label for="activity">Session Time Total:</label>
             <select id="activity" name="activity" >
@@ -155,26 +144,88 @@
             </select>
         </p>
       </section>
-      <section>
+      <section class = "stepThree ">
         <h2>Tires to Try/Use</h2>
-        <ul>
-          <!-- need to have the tire list populate here -->
+        <table>
+          <tr>
+            <th><strong>Vehicle</strong></th>
+            <th><strong>Front Tires</strong></th>
+            <th><strong>Rear Tires</strong></th>
+          </tr>
           <% for(var i=0; i<vehicles.length; i++) {%>
-            <li>
-              <span><% %> Brand Name</span>
-              <span><% %> Tire Size</span>
-            </li>
+            <tr>
+              <td>
+                <strong>
+                  <%= vehicles[i].year %> 
+                  <%= vehicles[i].motorcycleBrand %> 
+                  <%= vehicles[i].motorcycleModel %> 
+                  <%= vehicles[i].engineSize %>
+                  <% console.log(vehicles[i].matchedTires) %>
+                </strong>
+              </td>
+              <td><%= vehicles[i].matchedTires.matchedFrontTires %></td>
+              <td><%= vehicles[i].matchedTires.matchedRearTires.join(', ') %> <%= vehicles[i].matchedTires.rearResultsOneUp.join(', ') %></td>
+            </tr>
           <% } %>
-        </ul>
+        </table>
       </section>
-      <section>
+      <section class= "stepThree ">
         <!-- need to have the list of things to prepare for to populate here also add a check button to it-->
         <h2>Requirments</h2>
-        <p>
-      
-        </p>
+        <ul>
+          <li><%= trackNeeds.Suit %></li>
+          <li><%= trackNeeds.Gloves %></li>
+          <li><%= trackNeeds.Helmet %></li>
+          <li><%= trackNeeds.Boots %></li>
+          <li><%= trackNeeds.Tools %></li>
+          <li><%= trackNeeds.Food %></li>
+          <li><%= trackNeeds.Water %></li>
+          <li><%= trackNeeds.ID %></li>
+          <li><%= trackNeeds.Transportation %></li>
+        </ul>
       </section>
     </section>
+
+    <div class="modal fade" id="myModal" style="display: flex; align-items: center; justify-content: center; margin-top: 10%;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 class="modal-title">Personal Best</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <form action="/vehicles" method="POST">
+              <!-- Form fields -->
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="vehicleUsed">Vehicle Used:</label>
+                <input type="text" class="form-control" name="vehicleUsed" required>
+              </div>
+              <div class="form-group">
+                <label for="track">Track:</label>
+                <input type="text" class="form-control" name="track" required>
+              </div>
+              <div class="form-group">
+                <label for="bestLapTime">Best Lap Time:</label>
+                <input type="text" class="form-control" name="bestLapTime" required>
+              </div>
+              
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="widthOfButton">Close</button>
+              <button type="submit" class="btn btn-primary" id="widthOfSubmit">Submit</button>
+             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
     <!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -184,7 +235,10 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/js/main.js"></script>
+      <script src="/js/hideProfileSections.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 <script src="/main.js"></script>
 

@@ -27,6 +27,15 @@ mongoose.connect(configDB.url, (err, database) => {
   require('./app/routes.js')(app, passport, db, ObjectId);
 }); // connect to our database
 
+
+// code to use when hosting
+// mongoose.connect(configDB.url, (err, database) => {
+//     if (err) return console.log(err)
+//     db = database
+//     app.listen(port);
+//     console.log('LinkUp is on port ' + port);
+//     require('./app/routes.js')(app, passport, db, upload, client);
+//   }); // connect to our database
 require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
@@ -57,68 +66,5 @@ console.log('The magic happens on port ' + port);
 console.log(parts.tiresToUse)//struct
 
 
-// may switch to an api that uses locations instead and health
 
-const trackInfo = {
-  '': {
-      'frontTire': '120/70',
-      'rearTire': '190/55',
-      'cc': '1000cc',
-      'oil': '10W-40',
-      'oilFilter': '303c',
-      'power': '197hp'
-  },
-  'kawasaki zx6r':{
-      'frontTire': '120/70',
-      'rearTire': '180/55',
-      'cc': '636cc',
-      'oil': '10W-40',
-      'oilFilter': '303c',
-      'power': '127hp'
-  },
-  'kawasaki zx4r':{
-      'frontTire': '120/70',
-      'rearTire': '160/60',
-      'cc': '399cc',
-      'oil': '15W-50',
-      'oilFilter': 'unknown',
-      'power': 'unknown'
-  },
-  'bmw s1000rr':{
-      'frontTire': '120/70',
-      'rearTire': '190/55',
-      'cc': '999cc',
-      'oil': '5W-40',
-      'oilFilter': '160',
-      'power': '205hp'
-  },
-  'ducati streetfighter v2':{
-      'frontTire': '120/70',
-      'rearTire': '160/60',
-      'cc': '955cc',
-      'oil': '15W-50',
-      'oilFilter': '159', 
-      'power': '153hp'
-  },
-  'ducati streetfighter v4':{
-      'frontTire': '120/70',
-      'rearTire': '160/60',
-      'cc': '1103cc',
-      'oil': '15W-50',
-      'oilFilter': '159',
-      'power': '208hp'
-  },
-  'yamaha r1':{
-      'frontTire': '120/70',
-      'rearTire': '190/55',
-      'cc': '998cc',
-      'oil': '10W-40',
-      'oilFilter': '159',
-      'power': '198hp'
-  },
-  'unknown':{
-      'frontTire': 'unknown',
-      'rearTire': 'unknown',
-      'cc': 'unknown' 
-  }
-}
+

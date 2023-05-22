@@ -24,14 +24,20 @@ function calculateCalories() {
     return Math.ceil(caloriesNeededF);
   }
 }
+console.log('test')
 
 Array.from(calculate).forEach(function(element){
   element.addEventListener('click', function(e){
+    console.log(sex.value)
+    // if(sex.value !== 'Male' || sex.value !== 'Female'){
+    //   alert('Please enter Male or Female.')
+    // }
     let calculation = calculateCalories();
-    let waterIntake = (weight / 2);
+    console.log('calculation', calculation)
+    let waterIntake = (Number(weight.value) / 2);
     document.getElementById('calCount').textContent = 'Calories Needed  '+ calculation + ' or ' + ' ' + Math.ceil(calculation * .3) + ' per session';
     document.getElementById('ounces').textContent = `Water(in ounces) ${waterIntake}`;
-    document.getElementById('liters').value = waterIntake * 0.02957;
+    document.getElementById('liters').textContent = (waterIntake * 0.02957).toFixed(2);
   });
 });
 
@@ -83,24 +89,3 @@ Array.from(gone).forEach(function(element){
   element.addEventListener('click', function(e){
   deleteVehicles(this.getAttribute('data-id'))
 })});
-
-document.getElementById('selectVehicle').addEventListener('change', function(){
-  // when they select vehicle we will get the front and rear tire sizes from info collection then use those to to look up tire brands that match the sizes from constant.js 
-  function searchFrontTire(array) {
-    for (let key in array) {
-      if (array[key]['frontTire'] === '120/70/R17') {
-        return key;
-      }
-    }
-    return 'Not found';
-  }
-  function searchRearTire(array) {
-      for (let key in array) {
-        if (array[key]['rearTire'] === '120/70/R17') {
-          return key;
-        }
-      }
-      return 'Not found';
-    }
-  
-})

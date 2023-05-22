@@ -4,9 +4,14 @@
 body{
   padding-top:80px;
   word-wrap:break-word;
+  background-color: red;
 }
 img{
   height: 200px;
+}
+#header{
+  height: 100px;
+  width:100%;
 }
 
 /* Background page styling
