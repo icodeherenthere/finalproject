@@ -9,8 +9,9 @@
 		<title>Track Attack</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
 	</head>
 	<body class="index is-preload">
 		<div id="page-wrapper">
@@ -143,15 +144,15 @@
 
 						<section class="special container">
 							<span class="icon solid fa-feed"></span>
-							<h2><strong>Personal Best</strong></h2>
+							<h2><strong>Personal Best Leaderboard</strong></h2>
 							<div class="container">
 								<div class="feed" id="feed">
 									<!-- feed content -->
-									
+									<% for(let i=0; i<personalBest.length; i++) {%>
 										<div class="feed-item">
-											
+											<%= personalBest[i].name %> <%= personalBest[i].vehicleUsed %> <%= personalBest[i].track %> <%= personalBest[i].bestLapTime %>
 										</div>
-									
+									<% } %>
 								</div>
 							</div>
 						</section>
@@ -278,14 +279,14 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="/js/jquery.min.js"></script>
-			<script src="/js/jquery.dropotron.min.js"></script>
-			<script src="/js/jquery.scrolly.min.js"></script>
-			<script src="/js/jquery.scrollex.min.js"></script>
-			<script src="/js/browser.min.js"></script>
-			<script src="/js/breakpoints.min.js"></script>
-			<script src="/js/util.js"></script>
-			<script src="/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>

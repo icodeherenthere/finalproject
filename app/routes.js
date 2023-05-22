@@ -7,7 +7,10 @@ module.exports = function(app, passport, db, ObjectId) {
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+      db.collection('personalBest').find().toArray((err, result) => {
+        if (err) return console.log(err)
+        res.render('index.ejs', {personalBest: result});
+      })
     });
 
     // PROFILE SECTION =========================
@@ -176,7 +179,7 @@ module.exports = function(app, passport, db, ObjectId) {
       );
     });
 
-    app.post('/vehicles', (req, res) => {
+    app.post('/personalBest', (req, res) => {
       const personalBest = req.body.personalBest
       const name = req.body.name;
       const vehicleUsed = req.body.vehicleUsed;
@@ -184,7 +187,7 @@ module.exports = function(app, passport, db, ObjectId) {
       const bestLapTime = req.body.bestLapTime;
     console.log(name, vehicleUsed, track, bestLapTime)
       db.collection('personalBest').insertOne(
-        { name: req.body.name, vehicleUsed: req.body.vehicleUsed, track: req.body.track, bestLaptime: req.body.bestLapTime},
+        { name: req.body.name, vehicleUsed: req.body.vehicleUsed, track: req.body.track, bestLapTime: req.body.bestLapTime},
         (err, result) => {
           if (err) return console.log(err);
           console.log('PB saved to database');
