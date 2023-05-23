@@ -15,7 +15,7 @@
   <h1 id="logo">Profile Page</h1>
   <nav id="nav">
     <ul>
-      <li class="current">Welcome</li>
+      <!-- <li class="current">Welcome</li> -->
       <li><a href="calculator" class="button primary">Calorie Calculator</a></li>
       <li>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><strong>Personal Best</strong></button>
@@ -65,9 +65,9 @@
             </div> -->
         </div>
     </div>
-    <h1><strong>Build your Trackday!</strong></h1>
+    <h1 ><strong class="buildingTrack">Build your Trackday!</strong></h1>
     <section>
-      <h3><strong>WHAT VEHICLE ARE YOU BRINGING?</strong></h3>
+      <h3><strong class="buildingTrack">WHAT VEHICLE ARE YOU BRINGING?</strong></h3>
         <select class="list-group vehicles" id="selectVehicle">
           <option class="list-group-item d-flex justify-content-between align-items-center">Which One?</option>
         <% for(var i=0; i<vehicles.length; i++) {%>
@@ -85,7 +85,7 @@
         <% } %>
         </select>
       <section>
-        <h2><strong>WHAT VEHICLE ARE YOU ADDING?</strong></h2>
+        <h2><strong class="buildingTrack">WHAT VEHICLE ARE YOU ADDING?</strong></h2>
         <form action="/vehicles" method="POST" class="form-horizontal">
           <div class="form-group">
             <label for="year" class="col-sm-2 control-label">Year:</label>
@@ -117,24 +117,31 @@
       
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary d-flex justify-content-between align-items-center">Submit</button>
             </div>
           </div>
         </form>
         
       </section>
       <section class = "stepOne ">
-        <h2><strong>Course?</strong></h2>
+        <h2><strong class="buildingTrack">What Course?</strong></h2>
         <select id="where" name="event" >
-          <option value="">Tracks</option>
+          <option value="">Pick A Track</option>
+          <option value="">Canaan</option>
+          <option value="">New York Safety Track</option>
+          <option value="">North East Motorcycle Road Racing</option>
           <option value="">Palmer</option>
+          <option value="">Ponoco Raceway</option>
+          <option value="">Thompson</option>
+
+          
         </select>
       </section>
       <section class = "stepTwo ">
-        <h2><strong>Session Length</strong></h2>
+        <h2><strong class="buildingTrack">Session Length</strong></h2>
         <p>
-          <label for="activity">Session Time Total:</label>
-            <select id="activity" name="activity" >
+          <label class="buildingTrackInfo" for="activity">Session Time Total:</label>
+            <select class="buildingTrackReq" id="activity" name="activity" >
               <option value="">Session Length</option>
               <option value=".3">20 mins(1 Sessions)</option>
               <option value=".6">40 mins(2 Sessions)</option>
@@ -145,7 +152,7 @@
         </p>
       </section>
       <section class = "stepThree ">
-        <h2>Tires to Try/Use</h2>
+        <h2 ><strong class="buildingTrack">Tires to Try/Use</strong></h2>
         <table>
           <tr>
             <th><strong>Vehicle</strong></th>
@@ -171,17 +178,17 @@
       </section>
       <section class= "stepThree ">
         <!-- need to have the list of things to prepare for to populate here also add a check button to it-->
-        <h2>Requirments</h2>
+        <h2><strong class="buildingTrack">Requirements</strong></h2>
         <ul>
-          <li><%= trackNeeds.Suit %></li>
-          <li><%= trackNeeds.Gloves %></li>
-          <li><%= trackNeeds.Helmet %></li>
-          <li><%= trackNeeds.Boots %></li>
-          <li><%= trackNeeds.Tools %></li>
-          <li><%= trackNeeds.Food %></li>
-          <li><%= trackNeeds.Water %></li>
-          <li><%= trackNeeds.ID %></li>
-          <li><%= trackNeeds.Transportation %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Suit %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Gloves %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Helmet %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Boots %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Tools %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Food %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Water %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.ID %></li>
+          <li class="buildingTrackReq"><%= trackNeeds.Transportation %></li>
         </ul>
       </section>
     </section>

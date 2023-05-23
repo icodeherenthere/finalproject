@@ -4,6 +4,31 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
+.buildingTrack{
+	font-size: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 20px;
+	padding-top: 15px;
+}
+
+.buildingTrackInfo{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 20px;
+	padding-top: 15px;
+}
+
+.buildingTrackReq{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+}
+
 /* Banner */
 
 	#banner .inner {
@@ -63,9 +88,22 @@ body {
 }
 
 #different{
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.84);
 }
 
+ .vehicles{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+} 
+
+#widthOfSubmit{
+	width: 70px;
+}
+
+#widthOfButton{
+	width: 70px;
+}
 
 ol, ul {
 	list-style: none;

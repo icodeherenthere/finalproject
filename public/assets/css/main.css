@@ -2576,7 +2576,7 @@ input, select, textarea {
 	#loginPage{
 		background-color: #645862;
 		background-image: url('/img/loggingin.jpeg');
-		background-size: contain;
+		background-size: cover;
 		background-position: top center;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -2606,6 +2606,21 @@ input, select, textarea {
 		padding: 3em;
 		text-align: center;
 	}
+
+	#email, #password{
+		border: solid 2px black;
+		background-color: white;
+		color: black;
+	}
+
+	.scroll-box {
+		height: 200px; /* Adjust the height as needed */
+		overflow-y: auto;
+	}
+
+
+
+
 
 	#banner {
 		background-attachment: scroll, scroll, scroll, fixed;
