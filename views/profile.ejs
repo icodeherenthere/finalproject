@@ -159,21 +159,23 @@
             <th><strong>Front Tires</strong></th>
             <th><strong>Rear Tires</strong></th>
           </tr>
-          <% for(var i=0; i<vehicles.length; i++) {%>
-            <tr>
-              <td>
-                <strong>
-                  <%= vehicles[i].year %> 
-                  <%= vehicles[i].motorcycleBrand %> 
-                  <%= vehicles[i].motorcycleModel %> 
-                  <%= vehicles[i].engineSize %>
-                  <% console.log(vehicles[i].matchedTires) %>
-                </strong>
-              </td>
-              <td><%= vehicles[i].matchedTires.matchedFrontTires %></td>
-              <td><%= vehicles[i].matchedTires.matchedRearTires.join(', ') %> <%= vehicles[i].matchedTires.rearResultsOneUp.join(', ') %></td>
-            </tr>
-          <% } %>
+          
+            <% for(var i=0; i<vehicles.length; i++) {%>
+              <tr>
+                <td>
+                  <strong>
+                    <%= vehicles[i].year %> 
+                    <%= vehicles[i].motorcycleBrand %> 
+                    <%= vehicles[i].motorcycleModel %> 
+                    <%= vehicles[i].engineSize %>
+                    <% console.log(vehicles[i].matchedTires) %>
+                  </strong>
+                </td>
+                <td><%= vehicles[i].matchedTires.matchedFrontTires %></td>
+                <td><%= vehicles[i].matchedTires.matchedRearTires.join(', ') %> <%= vehicles[i].matchedTires.rearResultsOneUp.join(', ') %></td>
+              </tr>
+            <% } %>
+         
         </table>
       </section>
       <section class= "stepThree ">

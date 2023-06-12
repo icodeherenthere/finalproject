@@ -1,5 +1,6 @@
 const { model } = require("mongoose");
 const { tiresToUse } = require("../public/constants");
+const fetch = require("node-fetch");
 
 module.exports = function(app, passport, db, ObjectId) {
 
